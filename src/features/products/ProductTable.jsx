@@ -10,6 +10,7 @@ import Filter from "./Filter";
 import styled from "styled-components";
 import Img from "../../ui/Img";
 import PlusButton from "../../ui/PlusButton";
+import Footer from "./Footer";
 
 const Wrapper = styled.div`
   padding: 1.6rem 2.4rem;
@@ -181,6 +182,8 @@ function ProductTable() {
           <FaPlus />
         </BtnAddRow>
       </Container>
+
+      <Footer />
     </Wrapper>
   );
 }

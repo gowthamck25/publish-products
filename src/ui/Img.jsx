@@ -61,7 +61,8 @@ function Img(props) {
   // unpacking reuqired details from props
   const {
     data: { rowIndex },
-    column: { colId },
+    column: { colId } = 0,
+    isFooter,
     variantNumber,
   } = props;
 
@@ -81,9 +82,11 @@ function Img(props) {
   return (
     <Wrapper>
       <Box imgpath={imgpath} />
-      <BtnEdit>
-        <FaEdit />
-      </BtnEdit>
+      {!isFooter && (
+        <BtnEdit>
+          <FaEdit />
+        </BtnEdit>
+      )}
       {rowIndex <= 4 && (
         <Name>
           {imgpath.startsWith("/mip")
