@@ -1,0 +1,11 @@
+@import "~ag-grid-community/styles/ag-grid.scss";
+@import "~ag-grid-community/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
+.ag-theme-custom {
+  @include ag-theme-alpine(
+    (
+      row-height: 50px,
+      header-background-color: #f5f5f5,
+    )
+  );
+}
