@@ -156,11 +156,12 @@ function ProductTable() {
     <Wrapper>
       <Container
         className="ag-theme-quartz" // applying the Data Grid theme
-        style={{ height: "100vh" }} // the Data Grid will fill the size of the parent container
+        // style={{ height: "100vh" }} // the Data Grid will fill the size of the parent container
       >
         <AgGridReact
           ref={gridRef}
           defaultColDef={defaultColDev}
+          domLayout={"autoHeight"}
           rowHeight={250}
           columnDefs={colDefs}
           rowData={rowData}
