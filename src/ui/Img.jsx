@@ -62,6 +62,7 @@ function Img(props) {
     data: { rowIndex },
     column: { colId },
     variantNumber,
+    isAddingRowData,
   } = props;
 
   if (variantNumber >= 3 || rowIndex > 4)

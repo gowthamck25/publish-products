@@ -2,7 +2,7 @@ import { AgGridReact } from "ag-grid-react"; // React Data Grid Component
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
 import { FaPlus } from "react-icons/fa";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import TableHeader from "./TableHeader";
 import SNo from "./SNo";
@@ -34,15 +34,22 @@ const BtnAddRow = styled.button`
 
 function ProductTable() {
   // Set rows
+  const [rowData, setRowData] = useState([]);
   const [rows, setRows] = useState(4);
-  const productsArray = [];
-  for (let i = 1; i <= rows; i++) {
-    const newObj = {
-      rowIndex: i,
-    };
-    productsArray.push(newObj);
-  }
-  const [rowData, setRowData] = useState(productsArray);
+
+  useEffect(
+    function () {
+      const productsArray = [];
+      for (let i = 1; i <= rows; i++) {
+        const newObj = {
+          rowIndex: i,
+        };
+        productsArray.push(newObj);
+      }
+      setRowData(productsArray);
+    },
+    [rows]
+  );
 
   // Adds new Column
   function handleAddColumn() {
