@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaEdit, FaPlus } from "react-icons/fa";
 import styled from "styled-components";
+import Modal from "./Modal";
+import ShowDesigns from "./ShowDesigns";
 
 const Wrapper = styled.div`
   padding: 5px;
@@ -62,17 +64,24 @@ function Img(props) {
   const {
     data: { rowIndex },
     column: { colId } = 0,
-    isFooter,
+    noBtns,
     variantNumber,
   } = props;
 
   if (variantNumber >= 3 || rowIndex > 4)
     return (
       <Wrapper>
-        <BtnAddDesign>
-          <FaPlus />
-          Add Desing
-        </BtnAddDesign>
+        <Modal>
+          <Modal.Open opens="add-design">
+            <BtnAddDesign>
+              <FaPlus />
+              Add Desing
+            </BtnAddDesign>
+          </Modal.Open>
+          <Modal.Window name="add-design">
+            <ShowDesigns />
+          </Modal.Window>
+        </Modal>
       </Wrapper>
     );
 
@@ -82,10 +91,17 @@ function Img(props) {
   return (
     <Wrapper>
       <Box imgpath={imgpath} />
-      {!isFooter && (
-        <BtnEdit>
-          <FaEdit />
-        </BtnEdit>
+      {!noBtns && (
+        <Modal>
+          <Modal.Open opens="add-design">
+            <BtnEdit>
+              <FaEdit />
+            </BtnEdit>
+          </Modal.Open>
+          <Modal.Window name="add-design">
+            <ShowDesigns />
+          </Modal.Window>
+        </Modal>
       )}
       {rowIndex <= 4 && (
         <Name>

@@ -52,10 +52,10 @@ function Footer() {
       <Box>
         <EmptyBox>NA</EmptyBox>
         <FlexBox>
-          <Img data={{ rowIndex: 1 }} isFooter={true} />
+          <Img data={{ rowIndex: 1 }} noBtns={true} />
         </FlexBox>
         <FlexBox>
-          <Img data={{ rowIndex: 2 }} isFooter={true} />
+          <Img data={{ rowIndex: 2 }} noBtns={true} />
         </FlexBox>
       </Box>
     </StyledFooter>
