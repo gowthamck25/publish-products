@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { FaEdit, FaPlus } from "react-icons/fa";
 import styled from "styled-components";
 
@@ -62,7 +63,6 @@ function Img(props) {
     data: { rowIndex },
     column: { colId },
     variantNumber,
-    isAddingRowData,
   } = props;
 
   if (variantNumber >= 3 || rowIndex > 4)

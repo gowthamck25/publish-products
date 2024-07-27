@@ -44,8 +44,8 @@ const BtnAddFilter = styled.button`
   gap: 1rem;
 `;
 
-function Filter({ data }) {
-  const { rowIndex } = data;
+function Filter(props) {
+  const { rowIndex } = props.data;
 
   if (rowIndex > 4)
     return (

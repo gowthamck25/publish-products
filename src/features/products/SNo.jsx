@@ -34,10 +34,11 @@ function SNo(props) {
   // getting data from SNo cellRenderer
   const serialNumber = props.data.rowIndex;
   const handleDeleteRow = props.context.handleDeleteRow;
+  // console.log(serialNumber);
 
   return (
     <Box>
-      <Button onClick={(e) => handleDeleteRow(e, serialNumber)}>
+      <Button onClick={() => handleDeleteRow(serialNumber)}>
         <RiDeleteBinLine />
       </Button>
 

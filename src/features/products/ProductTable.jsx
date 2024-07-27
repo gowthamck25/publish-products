@@ -16,9 +16,7 @@ const Wrapper = styled.div`
   padding-bottom: 0;
 `;
 
-const Container = styled.div`
-  /* position: relative; */
-`;
+const Container = styled.div``;
 
 const BtnAddRow = styled.button`
   border: none;
@@ -34,22 +32,17 @@ const BtnAddRow = styled.button`
 
 function ProductTable() {
   // Set rows
-  const [rowData, setRowData] = useState([]);
+  // const [rowData, setRowData] = useState([]);
   const [rows, setRows] = useState(4);
 
-  useEffect(
-    function () {
-      const productsArray = [];
-      for (let i = 1; i <= rows; i++) {
-        const newObj = {
-          rowIndex: i,
-        };
-        productsArray.push(newObj);
-      }
-      setRowData(productsArray);
-    },
-    [rows]
-  );
+  const productsArray = [];
+  for (let i = 1; i <= rows; i++) {
+    const newObj = {
+      rowIndex: i,
+    };
+    productsArray.push(newObj);
+  }
+  const [rowData, setRowData] = useState(productsArray);
 
   // Adds new Column
   function handleAddColumn() {
@@ -76,14 +69,14 @@ function ProductTable() {
 
   // Adds new Row
   const handleAddRow = () => {
-    const newRow = { rowIndex: rowData.length + 1 };
+    const newRow = { rowIndex: rowData.length + 1, isAddedRow: true };
     const updatedRowData = [...rowData, newRow];
     setRowData(updatedRowData);
     setRows(updatedRowData.length);
   };
 
   // deletes a row based on id
-  function handleDeleteRow(e, id) {
+  function handleDeleteRow(id) {
     const updatedRowData = rowData.filter((row) => row.rowIndex !== id);
     setRowData(updatedRowData);
     setRows(updatedRowData.length);
